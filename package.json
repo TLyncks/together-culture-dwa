@@ -1,0 +1,20 @@
+{
+  "name": "together-culture-dwa",
+  "version": "1.0.0",
+  "description": "Repository containing a website developed as part of the Developing Web Applications module during my time studying MSc Information &amp; Communication Technology at ARU.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TLyncks/together-culture-dwa.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TLyncks/together-culture-dwa/issues"
+  },
+  "homepage": "https://github.com/TLyncks/together-culture-dwa#readme"
+}
