@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Memberships – Together Culture</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <h1>Together Culture</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="memberships.html">Memberships</a>
+      <a href="events.html">Events</a>
+      <a href="contact.html">Support</a>
+      <a href="login.html">Login</a>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2 class="page-title">Explore Our Membership Tiers</h2>
+      <p style="text-align:center;">Join a level that matches your journey with Together Culture.</p>
+    </section>
+
+    <div id="membershipList"></div>
+    
+    <p style="text-align:center; margin-top: 2rem;">
+      Already a member? <a href="login.html">Log in</a> to manage your membership.
+    </p>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Together Culture. All rights reserved.</p>
+    <p><a href="contact.html">Need help?</a></p>
+  </footer>
+
+  <script>
+    // Fetch and display all memberships
+    fetch("/api/memberships")
+      .then(res => res.json())
+      .then(data => {
+        const container = document.getElementById("membershipList");
+
+        if (!Array.isArray(data) || data.length === 0) {
+          container.innerHTML = "<p>No memberships found.</p>";
+          return;
+        }
+        container.innerHTML = data.map(m => `
+          <div class="membership-option">
+            <strong>${m.name}</strong>
+            <p>${m.description}</p>
+            <a href="register.html" class="button" style="margin-top: 1rem; display: inline-block;">Join Now</a>
+          </div>
+        `).join("");
+      })
+      .catch(() => {
+        document.getElementById("membershipList").innerHTML = "<p>Error loading memberships.</p>";
+      });
+  </script>
+</body>
+</html>

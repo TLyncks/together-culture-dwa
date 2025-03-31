@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <button id="logoutBtn">Logout</button>
+
+  <h1>Welcome, Admin</h1>
+
+  <div class="tab-buttons">
+    <button data-tab="support" class="active">📬 Support Requests</button>
+    <button data-tab="users">👥 User Management</button>
+  </div>
+
+  <div id="tab-support" class="tab active">
+    <h2>Support Requests</h2>
+    <div id="adminMessages">Loading support messages...</div>
+  </div>
+
+  <div id="tab-users" class="tab">
+    <h2>All Members</h2>
+    <input type="text" id="userSearch" placeholder="Search users...">
+    <div id="adminUsers">Loading users...</div>
+  </div>
+
+  <script src="js/admin.js"></script>
+</body>
+</html>

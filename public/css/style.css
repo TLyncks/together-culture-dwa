@@ -1,0 +1,466 @@
+/* RESET DEFAULTS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+/* Ensure full-page layout */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Main content container */
+main {
+  flex: 1;
+  width: 100%;
+  max-width: 960px;
+  padding: 2rem 1rem;
+  margin: 2rem auto;
+  background-color: #f9f9f9;
+  box-sizing: border-box;
+}
+
+
+@media (max-width: 600px) {
+  main {
+    margin: 1rem auto;
+    padding: 1.5rem 1rem;
+  }
+}
+
+
+/* HEADER (full-width and sticky if needed) */
+header {
+  background-color: rgb(254, 30, 60);
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* NAVIGATION */
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 1rem;
+  font-weight: 600;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* FOOTER (sticks to bottom if content is short) */
+footer {
+  background-color: #1a1a1a;
+  color: #ccc;
+  text-align: center;
+  padding: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+h1, h2, h3 {
+  color: #333;
+}
+
+/* TABS */
+.tab {
+  display: none;
+}
+
+.tab.active {
+  display: block;
+}
+
+.tab-buttons {
+  margin-bottom: 1rem;
+}
+
+.tab-buttons button {
+  margin-right: 10px;
+  padding: 10px 16px;
+  font-weight: 600;
+  background-color: #e0e0e0;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.tab-buttons button:hover {
+  background-color: #d0d0d0;
+}
+
+.tab-buttons button.active {
+  background-color: #444;
+  color: #fff;
+}
+
+/* FORMS & INPUTS */
+form input,
+form textarea {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px;
+  margin: 6px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+button {
+  margin-top: 0.5rem;
+  padding: 8px 16px;
+  font-weight: 600;
+  background-color: #0077ff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: #005fcc;
+}
+
+button[disabled] {
+  background-color: #aaa !important;
+  cursor: not-allowed;
+}
+
+/* MEMBERSHIP CARDS */
+.membership-option {
+  background: white;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+}
+
+.membership-option strong {
+  font-size: 1.1rem;
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* SUPPORT MESSAGE / USER CARD */
+.message-card,
+.user-card {
+  background: white;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+}
+
+/* LOGOUT BUTTON */
+#logoutBtn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 8px 12px;
+  background-color: crimson;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .tab-buttons {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .tab-buttons button {
+    flex: 1 1 100%;
+    margin-bottom: 8px;
+  }
+
+  #logoutBtn {
+    position: static;
+    margin-bottom: 1rem;
+    float: right;
+  }
+}
+
+.membership-status-wrapper {
+  margin: 1rem 0 2rem 0;
+}
+
+.membership-status {
+  background-color: #f1f9ff;
+  border-left: 6px solid #0077ff;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-size: 1.05rem;
+}
+
+.membership-status strong {
+  font-size: 1.2rem;
+  color: #005fcc;
+}
+
+.membership-status.none {
+  background-color: #fff3cd;
+  border-left-color: #ffc107;
+  color: #856404;
+}
+
+/* LANDING PAGE STYLES */
+.hero {
+  text-align: center;
+  padding: 5rem 2rem;
+  background: linear-gradient(to right, #ffe6e9, #fff5f6);
+  border-radius: 16px;
+  margin-bottom: 3rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.hero h2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #111;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: #444;
+  max-width: 600px;
+  margin: 0 auto 2rem auto;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.button {
+  display: inline-block;
+  background-color: rgb(254, 30, 60);
+  color: white;
+  padding: 0.8rem 1.6rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  background-color: #d9002f;
+}
+
+
+.button.outline {
+  background-color: transparent;
+  border: 2px solid rgb(254, 30, 60);
+  color: rgb(254, 30, 60);
+}
+
+.button.outline:hover {
+  background-color: rgb(254, 30, 60);
+  color: white;
+}
+
+/* SECTION STYLING */
+section {
+  margin-bottom: 3rem;
+}
+
+section h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+section ul {
+  list-style: none;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+section ul li {
+  background-color: white;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+section ul li::before {
+  content: "✔️";
+  font-size: 1.2rem;
+  color: #0077ff;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .hero h2 {
+    font-size: 2rem;
+  }
+
+  .button {
+    width: 100%;
+    text-align: center;
+  }
+
+  section ul li {
+    font-size: 1rem;
+  }
+}
+
+/* MEMBERSHIP PAGE LAYOUT */
+#membershipList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+
+/* Enhanced membership cards */
+.membership-option {
+  background: white;
+  padding: 2rem;
+  border: 1px solid #ddd;
+  border-left: 5px solid rgb(254, 30, 60);
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.membership-option:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.07);
+}
+
+.membership-option strong {
+  font-size: 1.3rem;
+  display: block;
+  margin-bottom: 0.5rem;
+  color: rgb(254, 30, 60);
+}
+
+.membership-option p {
+  color: #444;
+  line-height: 1.4;
+}
+
+.page-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+/* EVENTS PAGE */
+#eventList {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.event-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  border-left: 5px solid rgb(254, 30, 60);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.07);
+}
+
+.event-card h3 {
+  margin-bottom: 0.5rem;
+  color: rgb(254, 30, 60);
+}
+
+.event-date {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #555;
+}
+
+/* CONTACT PAGE */
+form {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  max-width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+form button {
+  align-self: flex-start;
+  background-color: rgb(254, 30, 60);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+form button:hover {
+  background-color: #d9002f;
+}
+
+#formStatus {
+  font-weight: 500;
+  text-align: center;
+}
+
+.form-container {
+  max-width: 500px;
+  margin: 2rem auto;
+}

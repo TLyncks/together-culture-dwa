@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Events – Together Culture</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <h1>Together Culture</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="memberships.html">Memberships</a>
+      <a href="events.html">Events</a>
+      <a href="contact.html">Support</a>
+      <a href="login.html">Login</a>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2 class="page-title">Upcoming Events</h2>
+      <p style="text-align: center;">Join us at our latest gatherings, workshops, and meetups.</p>
+    </section>
+    <div id="eventList"></div>
+
+<script>
+  fetch("/api/events")
+    .then(res => res.json())
+    .then(events => {
+      const container = document.getElementById("eventList");
+
+      if (!Array.isArray(events) || events.length === 0) {
+        container.innerHTML = "<p>No events available at the moment.</p>";
+        return;
+      }
+
+      container.innerHTML = events.map(event => {
+        const formattedDate = new Date(event.date).toLocaleString("en-GB", {
+          weekday: "long",
+          day: "numeric",
+          month: "long",
+          year: "numeric",
+          hour: "2-digit",
+          minute: "2-digit"
+        });
+
+        return `
+          <div class="event-card">
+            <h3>${event.title}</h3>
+            <p class="event-date">${formattedDate}</p>
+            <p>${event.description}</p>
+          </div>
+        `;
+      }).join("");
+    })
+    .catch(error => {
+      console.error("Failed to fetch events:", error);
+      document.getElementById("eventList").innerHTML =
+        "<p>Something went wrong while loading events.</p>";
+    });
+  </script>
+
+    
+    
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Together Culture. All rights reserved.</p>
+    <p><a href="contact.html">Need help?</a></p>
+  </footer>
+</body>
+</html>

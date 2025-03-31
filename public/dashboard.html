@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Together Culture</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="memberships.html">Memberships</a>
+      <a href="events.html">Events</a>
+      <a href="contact.html">Support</a>
+      <a href="login.html">Login</a>
+    </nav>
+  </header>
+
+  <main>
+    <button id="logoutBtn">Logout</button>
+    <h1 id="welcomeMessage">Welcome</h1>
+
+    <div class="tab-buttons">
+      <button data-tab="home" class="active">🏠 Home</button>
+      <button data-tab="account">⚙️ Account</button>
+      <button data-tab="membership">🎟️ Membership</button>
+    </div>
+
+    <div id="tab-home" class="tab active">
+      <h2>Dashboard Overview</h2>
+      <p>This is your personal space. Check your membership status, update details, or contact support.</p>
+    </div>
+
+    <div id="tab-account" class="tab">
+      <h2>Account Settings</h2>
+      <form id="updateForm">
+        <input type="text" id="editName" placeholder="New Name"><br>
+        <input type="email" id="editEmail" placeholder="New Email"><br>
+        <button type="submit">Update Details</button>
+      </form>
+      <hr>
+      <h3>Change Password</h3>
+      <form id="passwordForm">
+        <input type="password" id="currentPassword" placeholder="Current Password" required><br>
+        <input type="password" id="newPassword" placeholder="New Password" required><br>
+        <button type="submit">Change Password</button>
+      </form>    
+      <hr>
+      <button id="deleteAccountBtn" style="color:red;">Delete My Account</button>
+    </div>
+
+    <div id="tab-membership" class="tab">
+      <div class="membership-status-wrapper">
+        <h3>Your Current Membership</h3>
+        <div id="membershipStatus" class="membership-status">Loading...</div>
+      </div>
+      
+      <div id="membershipOptions"></div>
+      <button id="cancelMembershipBtn" style="margin-top: 10px;">Cancel Membership</button>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Together Culture. All rights reserved.</p>
+    <p><a href="contact.html">Need help?</a></p>
+  </footer>
+
+  <script src="js/auth.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

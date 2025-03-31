@@ -15,8 +15,14 @@ const findUserById = (id, callback) => {
   db.query(sql, [id], callback);
 };
 
+const updateUserPassword = (id, hashedPassword, callback) => {
+  db.query("UPDATE users SET password = ? WHERE id = ?", [hashedPassword, id], callback);
+};
+
+
 module.exports = {
   createUser,
   findUserByEmail,
   findUserById,
+  updateUserPassword,
 };
