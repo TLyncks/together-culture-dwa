@@ -10,8 +10,18 @@ const joinMembership = (req, res) => {
 
   const query = "UPDATE users SET membership_id = ? WHERE id = ?";
   db.query(query, [membership_id, userId], (err) => {
-    if (err) return res.status(500).json({ error: "Failed to join membership" });
+    if (err) return res.status(500).json({ error: "Failed to join/upgrade membership" });
     res.json({ message: "Membership updated successfully" });
+  });
+};
+
+const cancelMembership = (req, res) => {
+  const userId = req.user.id;
+
+  const query = "UPDATE users SET membership_id = NULL WHERE id = ?";
+  db.query(query, [userId], (err) => {
+    if (err) return res.status(500).json({ error: "Failed to cancel membership" });
+    res.json({ message: "Membership canceled successfully" });
   });
 };
 
@@ -35,5 +45,22 @@ const getMembership = (req, res) => {
 
 module.exports = {
   joinMembership,
+  cancelMembership,
   getMembership,
+};
+
+const getAllMemberships = (req, res) => {
+  const query = "SELECT id, name, description FROM memberships";
+
+  db.query(query, (err, results) => {
+    if (err) return res.status(500).json({ error: "Failed to load memberships" });
+    res.json(results);
+  });
+};
+
+module.exports = {
+  joinMembership,
+  cancelMembership,
+  getMembership,
+  getAllMemberships, // ✅ add this
 };
