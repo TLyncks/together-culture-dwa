@@ -1,5 +1,6 @@
 const authRoutes = require("./routes/authRoutes");
 const membershipRoutes = require("./routes/membershipRoutes");
+const contactRoutes = require("./routes/contactRoutes");
 const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
@@ -13,6 +14,8 @@ app.use(helmet());
 app.use(express.json());
 app.use("/api", authRoutes);
 app.use("/api", membershipRoutes);
+app.use("/api", contactRoutes);
+
 
 app.get("/", (req, res) => res.send("API is live"));
 
