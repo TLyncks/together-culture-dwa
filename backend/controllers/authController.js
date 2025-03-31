@@ -1,20 +1,31 @@
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const User = require("../models/userModel");
+const db = require("../config/db")
 
 const register = (req, res) => {
-  const { name, email, password } = req.body;
-  if (!name || !email || !password) return res.status(400).json({ error: "Missing fields" });
+  const { name, email, password, admin_code } = req.body;
+
+  if (!name || !email || !password) {
+    return res.status(400).json({ error: "Missing required fields" });
+  }
+
+  const role = admin_code === process.env.ADMIN_CODE ? "admin" : "member";
 
   bcrypt.hash(password, 10, (err, hash) => {
     if (err) return res.status(500).json({ error: "Error hashing password" });
 
-    User.createUser(name, email, hash, (err, result) => {
+    const sql = "INSERT INTO users (name, email, password, role) VALUES (?, ?, ?, ?)";
+    db.query(sql, [name, email, hash, role], (err) => {
       if (err) return res.status(500).json({ error: "Registration failed" });
-      res.status(201).json({ message: "User registered successfully" });
+
+      res.status(201).json({
+        message: `User registered successfully${role === "admin" ? " as admin" : ""}`,
+      });
     });
   });
 };
+
 
 const login = (req, res) => {
   const { email, password } = req.body;
